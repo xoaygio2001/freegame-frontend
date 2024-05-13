@@ -1,13 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './css/fontawesome-v5/css/all.css'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { Provider } from 'react-redux';
+import { legacy_createStore as createStore, applyMiddleware  } from 'redux'
+import rootReducer from './store/reducers/rootReducer';
+import {thunk} from "redux-thunk" 
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const reduxStore = createStore(rootReducer, applyMiddleware(thunk))
+
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Provider store={reduxStore}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
