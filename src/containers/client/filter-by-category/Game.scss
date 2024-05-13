@@ -1,0 +1,231 @@
+.home-game {
+    // background-color: chartreuse;
+    width: 100%;
+    margin-top: 20px;
+
+    .nav {
+        // background-color: red;                    
+        height: 50px;
+        display: flex;
+        align-items: center;
+
+        .title {
+            width: 27%;
+
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            margin-left: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .line {
+            width: 70%;
+            height: 5px;
+            background-color: red;
+        }
+
+    }
+
+    .games {
+        display: flex;
+
+        @media screen and (max-width: 500px) {
+            // width: 100vw !important;
+            // height: 200px;
+            display: block;
+        }
+
+        .game {
+            background-color: #252323;
+
+            @media screen and (max-width: 500px) {
+                width: 90% !important;
+                height: 300px;
+            }
+
+
+            width: 23%;
+            // min-width: 23%;
+
+            height: 300px;
+            margin: 30px 0 0px 20px;
+
+
+            .img {
+                width: 100%;
+                height: 49%;
+                background: url("https://cdn2.unrealengine.com/social-image-battlepass-3840x2160-d337a789158e.jpg");
+                background-position: center;
+                background-size: contain;
+
+                // border-radius: 15px;
+
+
+            }
+
+            .name {
+                width: 100%;
+                height: 17%;
+                // background-color: cornflowerblue;
+                display: flex;
+                align-items: center;
+                font-size: 16px;
+                color: white;
+
+            }
+
+            .tag {
+                width: 100%;
+                height: 17%;
+                // background-color: aquamarine;
+                display: flex;
+                align-items: center;
+                color: red;
+
+                i {
+                    color: #929292;
+                }
+
+                p {
+                    font-size: 13px;
+                    margin-left: 5px;
+                }
+
+                .white {
+                    color: white !important;
+                }
+
+
+            }
+
+            .see {
+                width: 100%;
+                height: 17%;
+                // background-color: darkgreen;
+                display: flex;
+                align-items: center;
+
+                .download {
+                    text-decoration: none;
+                    height: 80% !important;
+                    width: 120px !important;
+                    display: flex !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+                    font-size: 14px !important;
+                    color: white !important;
+                    background-color: rgb(0, 15, 56) !important;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: rgb(0, 30, 199);
+                        background-color: red !important;
+                    }
+                }
+            }
+        }
+    }
+    
+    .pagination{
+        height: 120px;
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+
+        .left{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .right{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .numbers{
+            display: flex;
+
+            .active{
+                border: 3px solid red;
+            }
+
+            .number{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                margin: 0 12px;
+                height: 45px;
+                width: 45px;
+                border-radius: 50%;
+                cursor: pointer;
+
+                &:hover{
+                    border: 3px solid blue;
+                }        
+            }
+        }
+
+        .three-dot{
+            color: white;
+            font-size: 26px;
+        }
+
+        .max-data-number{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 12px;
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+
+            &:hover{
+                border: 3px solid blue;
+            }
+        }
+
+        .min-data-number{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 12px;
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            
+            cursor: pointer;
+
+            &:hover{
+                border: 3px solid blue;
+            }
+        }
+
+        i{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 7px;
+            font-size: 26px;
+            color: white;
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+
+            &:hover{
+                border: 3px solid blue;
+            }
+        }
+    }
+}

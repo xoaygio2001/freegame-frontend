@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+
+
+}
+
+body {
+    background-image: url("https://static.square-enix-games.com/ffviir-backdrops/ffviir-zoom-cloud-shinra.jpg");
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+.container-homepage {
+
+    margin-bottom: 50px;
+
+
+
+    .content-container {
+        margin: 0 auto;
+        margin-top: 40px;
+        width: 1200px;
+        background-color: #000000;
+        border-top: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+        border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+
+        @media screen and (max-width: 500px) {
+            width: 100vw;
+            margin: 0;
+        }
+
+        // .header {
+        //     height: 100px;
+        //     width: 100%;
+        //     // background-color: aqua;
+
+        //     .top {
+        //         width: 100%;
+        //         height: 45%;
+        //         // background-color: blue;
+
+        //         display: flex;
+
+        //         justify-content: space-between;
+        //         align-items: center;
+
+        //         border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+
+        //         .trash {
+        //             color: red;
+        //         }
+
+        //         .search {
+        //             background-color: white;
+        //             height: 30px;
+        //             width: 500px;
+        //             display: flex;
+        //             align-items: center;
+        //             border-radius: 40px;
+
+        //             margin-left: 10px;
+
+        //             i {
+        //                 margin-left: 10px;
+        //                 font-size: medium;
+        //             }
+
+        //             input {
+        //                 width: 70%;
+        //                 margin-left: 10px;
+        //             }
+        //         }
+
+
+
+        //         .account {
+        //             display: flex;
+        //             justify-content: center;
+        //             align-items: center;
+        //             margin-left: 10px;
+
+        //             .inform {
+        //                 background-color: rgb(146, 146, 146);
+        //                 height: 30px;
+        //                 width: 30px;
+        //                 border-radius: 50%;
+        //                 text-align: center;
+        //                 justify-content: center;
+
+        //                 margin-right: 5px;
+
+        //                 .fa-bell {
+        //                     margin-top: 2px;
+        //                     font-size: 25px;
+        //                 }
+        //             }
+
+        //             .sign-up {
+        //                 margin-left: 10px;
+        //                 display: flex;
+        //                 justify-content: center;
+        //                 color: white;
+        //                 font-weight: 700;
+        //             }
+
+        //             .sign-in {
+        //                 margin-left: 10px;
+        //                 margin-right: 10px;
+        //                 display: flex;
+        //                 justify-content: center;
+        //                 color: white;
+        //                 font-weight: 700;
+        //             }
+        //         }
+
+
+        //     }
+
+        //     .bottom {
+        //         width: 100%;
+        //         height: 55%;
+        //         // background-color: blueviolet;
+
+        //         display: flex;
+        //         justify-content: space-between;
+        //         align-items: center;
+
+        //         border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+
+        //         .left {
+        //             display: flex;
+        //             align-items: center;
+
+        //             cursor: pointer;
+
+        //             .logo {
+        //                 height: 45px;
+        //                 width: 45px;
+        //                 border-radius: 50%;
+        //                 background-image: url("https://i.ibb.co/QNwyf9n/146087794-264700551678261-7929059621239927191-n.jpg");
+        //                 background-position: center;
+        //                 background-size: contain;
+
+        //                 margin-left: 10px;
+        //             }
+
+        //             .title {
+        //                 margin-left: 3px;
+        //                 color: red;
+        //                 font-weight: 700;
+        //                 font-size: 16px;
+        //             }
+
+
+        //         }
+
+        //         .right {
+        //             width: 80%;
+        //             display: flex;
+        //             justify-content: space-around;
+
+        //             .game {
+        //                 color: white;
+        //                 font-size: 16px;
+        //                 font-weight: 700;
+        //             }
+
+        //             .game-viet-hoa {
+        //                 color: white;
+        //                 font-size: 16px;
+        //                 font-weight: 700;
+
+        //                 @media screen and (max-width: 500px) {
+        //                     display: none;
+        //                 }
+        //             }
+
+        //             .game-18 {
+        //                 color: white;
+        //                 font-size: 16px;
+        //                 font-weight: 700;
+
+        //                 @media screen and (max-width: 500px) {
+        //                     display: none;
+        //                 }
+        //             }
+
+        //             .phan-mem {
+        //                 color: white;
+        //                 font-size: 16px;
+        //                 font-weight: 700;
+
+        //                 @media screen and (max-width: 500px) {
+        //                     display: none;
+        //                 }
+        //             }
+        //         }
+
+        //     }
+        // }
+
+        .body {
+            width: 100%;
+            padding-bottom: 60px;
+            // background-color: brown;
+
+        }
+
+    }
+}

@@ -1,0 +1,406 @@
+.header {
+    height: 120px;
+    width: 100%;
+    // background-color: aqua;
+    top: 0;
+    position: sticky;
+    z-index: 10;
+    background-color: black;
+
+    .top {
+        width: 100%;
+        height: 45%;
+        // background-color: blue;
+
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+
+        border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+
+        .trash {
+            color: red;
+        }
+
+        .search {
+            height: 38px;
+            width: 500px;
+
+            .search-1 {
+                height: 100%;
+                width: 100%;
+
+                background-color: white;
+                display: flex;
+                align-items: center;
+                border-radius: 40px;
+
+                margin-left: 10px;
+                position: relative;
+
+                i {
+                    margin-left: 10px;
+                    font-size: medium;
+                }
+
+                input {
+                    width: 90%;
+                    margin-left: 10px;
+                    font-size: 20px;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+            }
+
+
+            .search-2 {
+                overflow: auto;
+                border: 4px solid red;
+                /* Viền bao quanh phần tử */
+
+                /* Tùy chỉnh thanh cuộn chung */
+                &::-webkit-scrollbar {
+                    width: 5px;
+                    /* Độ rộng của thanh cuộn */
+                }
+
+                /* Tùy chỉnh track (phần nền) của thanh cuộn */
+                &::-webkit-scrollbar-track {
+                    background-color: #555;
+                    /* Màu nền */
+                }
+
+                /* Tùy chỉnh thumb (thanh cuộn thực sự) */
+                &::-webkit-scrollbar-thumb {
+                    background-color: #888;
+                    /* Màu của thanh cuộn */
+                    border-radius: 5px;
+                    /* Độ cong của thanh cuộn */
+                }
+
+                /* Khi rê chuột qua thanh cuộn */
+                &::-webkit-scrollbar-thumb:hover {
+                    background-color: #555;
+                    /* Màu khi rê chuột qua */
+                }
+
+                display: none;
+                position: absolute;
+                background-color: black;
+                width: 465px;
+                max-height: 300px;
+                min-height: 30px;
+                margin-left: 27px;
+                z-index: 10;
+                cursor: pointer;
+
+                .children {
+                    font-size: 17px;
+                    font-family: 700;
+                    color: rgb(223, 223, 223);
+                    padding-left: 15px;
+                    padding-top: 15px;
+
+                    &:hover {
+                        color: red;
+                    }
+
+                }
+
+                .game-search {
+                    display: flex;
+                    margin: 10px 0 0 10px;
+                    cursor: pointer;
+
+                    .img {
+                        height: 70px;
+                        width: 100px;
+                        background-image: url("https://i.ibb.co/QNwyf9n/146087794-264700551678261-7929059621239927191-n.jpg");
+                        background-position: center;
+                        background-size: contain;
+
+                    }
+
+                    p {
+                        margin: auto 10px;
+                        color: white;
+                        font-size: 18px;
+                    }
+
+                    &:hover {
+                        background-color: #888;
+                    }
+                }
+
+
+
+
+            }
+
+            .active {
+                display: block !important;
+            }
+        }
+
+
+
+
+        .account {
+
+            .infor{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 10px;
+
+                .inform {
+                    background-color: rgb(146, 146, 146);
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    text-align: center;
+                    justify-content: center;
+    
+                    margin-right: 5px;
+    
+                    .fa-bell {
+                        margin-top: 2px;
+                        font-size: 25px;
+                    }
+                }
+    
+    
+                .sign-up {
+                    margin-left: 10px;
+                    display: flex;
+                    justify-content: center;
+                    color: white;
+                    font-weight: 700;
+                    cursor: pointer;
+                }
+    
+                .sign-in {
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    display: flex;
+                    justify-content: center;
+                    color: white;
+                    font-weight: 700;
+                    cursor: pointer;
+    
+                }
+    
+                .isLogin {
+                    color: white;
+                    margin-right: 10px;
+                    margin-left: 10px;
+
+                    .fa-sort-down{
+                        color: white;
+                        margin-right: 10px;
+                        margin-left: 10px;
+                        font-size: 16px;
+                        margin-top: -5px;
+                        cursor: pointer;
+                    }
+                }
+    
+
+            }
+
+
+
+            .nav-account{
+                color: black;
+                display: none;
+                position: absolute;
+                background-color: white;
+                width: 170px;
+                margin-left: -50px;
+                border-radius: 7px;
+                
+                div{
+
+                    display: flex;
+                    padding: 10px 0 0 10px;
+                    cursor: pointer;
+
+                    i{
+                        font-size: 18px;
+                    }
+                    p{
+                        margin-left: 10px;
+                        font-size: 15px;
+                        font-weight: 600;
+                    }
+
+                    &:hover{
+                        background-color: rgba($color: #4d4d4d, $alpha: 0.3);
+
+                        i, p {
+                            color: red;
+                        }
+                    }
+                }
+            }
+
+            .active{
+                display: block;
+            }
+        }
+
+
+    }
+
+    .bottom {
+        width: 100%;
+        height: 55%;
+        // background-color: blueviolet;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+
+        .left {
+            display: flex;
+            align-items: center;
+
+            cursor: pointer;
+
+            .logo {
+                height: 45px;
+                width: 45px;
+                border-radius: 50%;
+                background-image: url("https://i.ibb.co/QNwyf9n/146087794-264700551678261-7929059621239927191-n.jpg");
+                background-position: center;
+                background-size: contain;
+
+                margin-left: 10px;
+            }
+
+            .title {
+                margin-left: 3px;
+                color: red;
+                font-weight: 700;
+                font-size: 16px;
+            }
+
+
+        }
+
+        .right {
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .game {
+                display: block;
+                align-items: center;
+
+                position: relative;
+
+
+
+
+                .title {
+                    color: white;
+                    font-size: 16px;
+                    font-weight: 700;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: red;
+                    }
+                }
+
+                .sub-nav {
+                    display: none;
+                    position: absolute;
+                    background-color: rgba($color: #131212, $alpha: 0.9);
+                    width: 400px;
+                    margin-left: -75px;
+                    z-index: 10;
+                    cursor: pointer;
+
+                    &:hover {
+                        display: block;
+                    }
+
+                    .children {
+                        font-size: 17px;
+                        font-family: 700;
+                        color: rgb(223, 223, 223);
+                        padding-left: 15px;
+                        padding-top: 15px;
+
+                        &:hover {
+                            color: red;
+                        }
+
+                    }
+
+                }
+
+                &:hover .sub-nav {
+                    display: block !important;
+                }
+
+
+            }
+
+            .game-viet-hoa {
+
+                color: white;
+                font-size: 16px;
+                font-weight: 700;
+
+                &:hover {
+                    cursor: pointer;
+                    color: red;
+                }
+
+                @media screen and (max-width: 500px) {
+                    display: none;
+                }
+            }
+
+            .game-18 {
+                color: white;
+                font-size: 16px;
+                font-weight: 700;
+
+                &:hover {
+                    cursor: pointer;
+                    color: red;
+                }
+
+                @media screen and (max-width: 500px) {
+                    display: none;
+                }
+            }
+
+            .phan-mem {
+                color: white;
+                font-size: 16px;
+                font-weight: 700;
+
+                &:hover {
+                    cursor: pointer;
+                    color: red;
+                }
+
+                @media screen and (max-width: 500px) {
+                    display: none;
+                }
+            }
+        }
+
+    }
+}

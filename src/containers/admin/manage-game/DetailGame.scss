@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+
+
+}
+
+body {
+    background-image: url("https://static.square-enix-games.com/ffviir-backdrops/ffviir-zoom-cloud-shinra.jpg");
+    background-position: center;
+}
+
+.container {
+
+    .content-container {
+        margin: 0 auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        width: 100%;
+        background-color: #000000;
+        border-top: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+        border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+
+        @media screen and (max-width: 500px) {
+            width: 100vw;
+            margin: 0;
+        }
+
+        .body {
+            width: 100%;
+
+            .title{
+                color: white;
+                font-size: 24px;
+                font-weight: 700;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .add-user {
+                width: 100%;
+                display: flex;
+                justify-content: right;
+
+                .add {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 40px;
+                    width: 130px;
+                    color: white;
+                    font-size: 18px;
+                    font-weight: 500;
+                    margin: 20px 0;
+                    background-color: rgb(26, 175, 212);
+                    border-radius: 10px;
+                    margin-right: 20px;
+
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: blue;
+                    }
+
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+            }
+
+            .switch{
+                color: white;
+                height: 60px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                div{
+                    text-align: center;
+                    background-color: green;
+                    height: 100%;
+                    width: 250px;
+                    border-radius: 10px;
+                    cursor: pointer;
+
+                    i{
+                        font-size: 28px;
+                    }
+                    p{
+
+                        font-size: 18px;
+                    }
+
+
+                    &:hover {
+                        background-color: blue;
+                    }
+                }
+            }
+
+            .content{
+                width: 80%;
+                margin: 0 auto;
+
+                .label{
+                    color: white;
+                }
+
+                .img{
+                    margin: 10px 0;
+                    height: 300px;
+                    width: 500px;
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+            }
+
+        }
+
+        .footer{
+            margin-bottom: 30px;
+        }
+
+    }
+}

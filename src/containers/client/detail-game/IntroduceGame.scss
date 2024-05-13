@@ -1,0 +1,35 @@
+.introduce-game {
+    width: 95%;
+    margin: 30px 0 0 20px;
+    // background-color: rgb(161, 9, 111);
+
+    .title {
+        width: 100%;
+        display: flex;
+        // background-color: chartreuse;
+        border-bottom: 3px solid red;
+
+        .name {
+            width: 100%;
+            // background-color: chocolate;
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+
+            i {
+                font-size: 32px;
+                border-bottom: 4px solid red;
+                background-color: red;
+            }
+        }
+    }
+
+    .detail {
+        .content{
+            color: white;
+            font-size: 13px;
+            padding-top: 20px;
+        }
+    }
+
+}

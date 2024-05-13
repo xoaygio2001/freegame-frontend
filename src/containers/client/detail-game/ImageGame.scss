@@ -1,0 +1,43 @@
+.img-game {
+    height: 500px;
+    width: 95%;
+    // background-color: blueviolet;
+    margin: 30px 0 0 20px;
+
+    .title {
+        width: 100%;
+        display: flex;
+        // background-color: chartreuse;
+
+        .name {
+            width: 70%;
+            // background-color: chocolate;
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+
+            i {
+                font-size: 32px;
+            }
+        }
+
+        .line {
+            width: 30%;
+            border-bottom: 3px solid red;
+        }
+    }
+
+    .img {
+        margin-top: 20px;
+        height: 450px;
+        width: 100%;
+        background-image: url("https://static.square-enix-games.com/ffviir-backdrops/ffviir-zoom-cloud-shinra.jpg");
+        background-position: center;
+        // background-repeat: no-repeat;
+        background-size: contain;
+
+        border-bottom: 3px solid red;
+
+
+    }
+}

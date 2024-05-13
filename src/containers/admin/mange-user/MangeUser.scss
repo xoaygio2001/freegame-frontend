@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+
+
+}
+
+body {
+    background-image: url("https://static.square-enix-games.com/ffviir-backdrops/ffviir-zoom-cloud-shinra.jpg");
+    background-position: center;
+}
+
+.container {
+
+    .content-container {
+        margin: 0 auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        width: 1300px;
+        background-color: #000000;
+        border-top: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+        border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+
+        @media screen and (max-width: 500px) {
+            width: 100vw;
+            margin: 0;
+        }
+
+        .body {
+            width: 100%;
+            display: block;
+
+            .title {
+                color: white;
+                font-size: 24px;
+                font-weight: 700;
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .add-user {
+                width: 100%;
+                display: flex;
+                justify-content: right;
+
+                .add {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 40px;
+                    width: 130px;
+                    color: white;
+                    font-size: 18px;
+                    font-weight: 500;
+                    margin: 20px 0;
+                    background-color: rgb(26, 175, 212);
+                    border-radius: 10px;
+                    margin-right: 20px;
+
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: blue;
+                    }
+
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+            }
+
+
+
+
+            .content {
+                width: 80%;
+                margin: 0 auto;
+
+                .table {
+                    height: 700px;
+
+                    thead {
+                        height: 40px;
+
+                    }
+
+                    i {
+                        font-size: 22px;
+                        margin: 10px 0 0 10px;
+                    }
+
+                    .fa-edit {
+                        color: #ff9b00;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: blue;
+                        }
+                    }
+
+                    .fa-trash-alt {
+                        color: #f73b00;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: blue;
+                        }
+                    }
+
+                    .fa-check {
+                        color: green;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: blue;
+                        }
+                    }
+
+                }
+
+                .pagination {
+                    height: 120px;
+                    width: 50%;
+                    margin: 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+
+                    .left {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .right {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .numbers {
+                        display: flex;
+
+                        .active {
+                            border: 3px solid red;
+                        }
+
+                        .number {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 24px;
+                            margin: 0 12px;
+                            height: 45px;
+                            width: 45px;
+                            border-radius: 50%;
+                            cursor: pointer;
+
+                            &:hover {
+                                border: 3px solid blue;
+                            }
+                        }
+                    }
+
+                    .three-dot {
+                        color: white;
+                        font-size: 26px;
+                    }
+
+                    .max-data-number {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 24px;
+                        margin: 0 12px;
+                        height: 45px;
+                        width: 45px;
+                        border-radius: 50%;
+                        cursor: pointer;
+
+                        &:hover {
+                            border: 3px solid blue;
+                        }
+                    }
+
+                    .min-data-number {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 24px;
+                        margin: 0 12px;
+                        height: 45px;
+                        width: 45px;
+                        border-radius: 50%;
+
+                        cursor: pointer;
+
+                        &:hover {
+                            border: 3px solid blue;
+                        }
+                    }
+
+                    i {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0 7px;
+                        font-size: 26px;
+                        color: white;
+                        height: 45px;
+                        width: 45px;
+                        border-radius: 50%;
+                        cursor: pointer;
+
+                        &:hover {
+                            border: 3px solid blue;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .footer {
+            margin-bottom: 30px;
+        }
+
+    }
+}

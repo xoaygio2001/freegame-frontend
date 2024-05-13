@@ -1,0 +1,50 @@
+.header-admin {
+    height: 40px;
+    width: 100%;
+    background-color: antiquewhite;
+    display: flex;
+
+    .navigate {
+        height: 100%;
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+
+        .manage-game, .manage-user {
+            width: 160px;
+            height: 100%;
+            background-color: rgba(94, 193, 250, 0.877);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: medium;
+            margin-right: 1px;
+            cursor: pointer;
+        }
+
+
+        .active{
+            color: white;
+            background-color: blue;
+        }
+
+    }
+
+    .account{
+        height: 100%;
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        
+        .hello{
+            padding-right: 20px;
+        }
+
+        .log-out{
+            padding-right: 20px;
+            cursor: pointer;
+        }
+    }
+}
