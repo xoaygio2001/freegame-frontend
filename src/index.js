@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './css/fontawesome-v5/css/all.css'
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Provider } from 'react-redux';
 import { legacy_createStore as createStore, applyMiddleware  } from 'redux'
