@@ -175,7 +175,6 @@ class MangeUser extends Component {
         currentPage = +currentPage;
         let maxPageNumber = Math.floor((allDataNumber / limit))
 
-        console.log(maxPageNumber)
 
         let arrNumber = [];
 
@@ -208,8 +207,6 @@ class MangeUser extends Component {
         if (currentPage == maxPageNumber - 3 && maxPageNumber != 1 && maxPageNumber != 2 && maxPageNumber != 3 && maxPageNumber != 4) {
             arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2, currentPage + 3]
         }
-
-        console.log('state: ', this.state)
 
         return (
             <div className="container">

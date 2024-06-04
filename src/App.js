@@ -9,9 +9,12 @@ import FillterByCategory from './containers/client/filter-by-category/FilterByCa
 
 import MangeUser from './containers/admin/mange-user/MangeUser';
 
+import ManageSoftware from './containers/admin/manage-software/ManageSoftware';
+
 import { ToastContainer, toast } from 'react-toastify';
 
 import DetailGame from './containers/admin/manage-game/DetailGame';
+import DetailSoftware from './containers/admin/manage-software/DetailSoftware';
 
 import { Navigate } from 'react-router-dom';
 
@@ -29,7 +32,9 @@ function App() {
         <Route path='/admin' element={<Navigate to="/admin/manage-user" />} />
         <Route path='/admin/manage-user' element={<MangeUser />} />
         <Route path='/admin/manage-game' element={<MangeGame />} />
+        <Route path='/admin/manage-software' element={<ManageSoftware />} />
         <Route path='/admin/detail-game/:id' element={<DetailGame />} />
+        <Route path='/admin/detail-software/:id' element={<DetailSoftware />} />
 
 
       </Routes>

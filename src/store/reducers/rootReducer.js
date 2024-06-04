@@ -20,6 +20,10 @@ const initState = {
     categoryByTagId: [],
     allAccount: [],
     allGame: [],
+    suggestGame: [],
+    allSoftware: [],
+
+    activeNavigate: 'user',
 
 
 
@@ -160,7 +164,31 @@ const rootReducer = (state = initState, action) => {
                 ...state,
             }
             break;
+        case 'SUGGEST-GAME':
+            state.suggestGame = action.data;
+            return {
+                ...state,
+            }
+            break;
 
+        case 'COMMENT-GAME':
+            state.commentGame = action.data;
+            return {
+                ...state,
+            }
+            break;
+        case 'ALL-SOFTWARE':
+            state.allSoftware = action.data;
+            return {
+                ...state,
+            }
+            break;
+        case 'NAVIGATE':
+            state.activeNavigate = action.data;
+            return {
+                ...state,
+            }
+            break;
 
 
 

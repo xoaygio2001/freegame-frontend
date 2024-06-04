@@ -34,7 +34,6 @@ class ImageGame extends Component {
                     <div class="name">{gameFather.name}</div>
                     <div class="date">{moment(gameFather.updatedAt).format('L')}</div>
                     <div class="down">
-                        
                         <a href={gameFather.url} class="link">LINK VIP</a>
                     </div>
                 </div>

@@ -5,6 +5,7 @@ import './HomePage.scss'
 import Header from '../header-footer/Headerr'
 import OutStandingGame from "./OutStandingGame";
 import HomeGame from "./HomeGame";
+import NewSoftware from "./NewSoftware";
 
 import Footer from "../header-footer/Footer";
 
@@ -40,6 +41,8 @@ class HomePage extends Component {
                             <OutStandingGame />
 
                             <HomeGame />
+
+                            <NewSoftware />
 
                         </div>
                         <Footer/>

@@ -1,0 +1,353 @@
+.comment-game {
+    width: 95%;
+    margin: 30px 0 0 20px;
+    background-color: rgb(35 35 35);
+    margin-bottom: 50px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+
+    .title {
+        width: 100%;
+        display: flex;
+        // background-color: chartreuse;
+        justify-content: center;
+        margin-top: 10px;
+
+
+        .name {
+            width: 97%;
+            // background-color: chocolate;
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            margin-left: 10px;
+            border-bottom: 3px solid rgb(255 129 0);
+
+
+            i {
+                font-size: 32px;
+                // border-bottom: 4px solid red;
+                // background-color: red;
+            }
+        }
+    }
+
+    .detail {
+        margin-top: 30px;
+
+        .link-vip {
+            width: 95%;
+            display: flex;
+
+            border-bottom: 1px chartreuse dotted;
+
+
+            .name {
+                width: 60%;
+                color: white;
+                font-size: 18px;
+                font-weight: 600;
+                border-right: 1px chartreuse dotted;
+                text-align: center;
+            }
+
+            .date {
+                width: 20%;
+                color: white;
+                font-size: 18px;
+                font-weight: 500;
+                padding: 0 10px;
+                border-right: 1px chartreuse dotted;
+                text-align: center;
+
+
+
+            }
+
+            .down {
+                display: flex;
+                width: 20%;
+                padding: 0 10px;
+                border-right: 1px chartreuse dotted;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+
+                .link {
+                    text-decoration: none;
+                    width: 120px;
+                    color: white;
+                    font-size: 18px;
+                    font-weight: 500;
+                    text-align: center;
+                    background-color: red;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                }
+
+            }
+        }
+
+
+    }
+
+    .detail-2 {
+        .my-comment {
+
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+
+            .avatar {
+                margin-top: 20px;
+                height: 50px;
+                width: 50px;
+                float: left;
+                background-image: url("https://cdn-icons-png.flaticon.com/512/149/149071.png");
+                background-position: center;
+                // background-repeat: no-repeat;
+                background-size: contain;
+
+                border-radius: 50%;
+
+            }
+
+            .comment-box {
+                margin-top: 20px;
+
+                width: 85%;
+            }
+        }
+
+        .btn-post-comment {
+            margin-top: 20px;
+            margin-right: 10px;
+            float: right;
+        }
+
+        .title-2 {
+            
+            margin-top: 80px;
+
+            .form-select {
+                width: 80px;
+                border: none;
+                background-color: transparent;
+                color: white;
+
+                option {
+                    color: black;
+                }
+
+            }
+        }
+
+        .other-comment {
+            margin-top: 20px;
+            width: 100%;
+
+            .container-comment {
+                margin-top: 20px;
+                height: auto;
+                overflow: hidden;
+                width: 100%;
+
+
+                .main-comment {
+                    width: 100%;
+                    height: auto;
+                    overflow: hidden;
+
+                    .left {
+                        margin-left: 20px;
+                        width: 8%;
+                        height: 80px;
+                        float: left;
+
+                        // background-color: chartreuse;
+
+                        .avatar {
+                            height: 50px;
+                            width: 50px;
+                            float: left;
+                            background-image: url("https://cdn-icons-png.flaticon.com/512/149/149071.png");
+                            background-position: center;
+                            // background-repeat: no-repeat;
+                            background-size: contain;
+
+                            border-radius: 50%;
+
+                        }
+                    }
+
+                    .right {
+                        width: 87%;
+                        float: right;
+                        // background-color: aqua;
+
+                        .top-name {
+                            display: flex;
+
+                            .name {
+                                color: blue;
+                                font-size: 15px;
+                                font-weight: bold;
+                            }
+
+                            .fa-clock {
+                                color: rgb(219, 194, 194);
+                                padding-left: 10px;
+                                padding-top: 4px;
+                            }
+
+                            .time {
+                                color: rgb(168, 146, 146);
+                                margin-left: 5px;
+                            }
+
+                        }
+
+
+                        .box-content-comment {
+                            width: 90%;
+                            float: right;
+                            background-color: aqua;
+                        }
+
+                        .content-comment {
+                            font-size: 15px;
+                            margin-top: 3px;
+                            color: white;
+                        }
+                    }
+                }
+
+                .reply {
+                    // background-color: aqua;
+                    display: flex;
+                    float: left;
+                    margin: 0 0 10px 100px;
+                    color: rgb(116, 101, 101);
+                    cursor: pointer;
+
+                    :hover {
+                        color: rgb(202, 182, 182);
+
+                    }
+
+
+                    .fa-reply {
+                        font-size: 13px;
+                    }
+
+                    .text {
+                        font-size: 13px;
+                        margin-left: 5px;
+                    }
+
+
+
+
+                }
+
+                .child-comment {
+                    width: 90%;
+                    margin-left: 70px;
+                    margin-top: 20px;
+                    height: auto;
+                    overflow: hidden;
+
+                    .left {
+                        margin-left: 20px;
+                        width: 8%;
+                        height: 80px;
+                        float: left;
+
+                        // background-color: chartreuse;
+
+                        .avatar {
+                            height: 50px;
+                            width: 50px;
+                            float: left;
+                            background-image: url("https://cdn-icons-png.flaticon.com/512/149/149071.png");
+                            background-position: center;
+                            // background-repeat: no-repeat;
+                            background-size: contain;
+
+                            border-radius: 50%;
+
+                        }
+                    }
+
+                    .right {
+                        width: 87%;
+                        float: right;
+                        // background-color: aqua;
+
+
+
+                        .top-name {
+                            display: flex;
+
+                            .name {
+                                color: blue;
+                                font-size: 15px;
+                                font-weight: bold;
+                            }
+
+                            .fa-clock {
+                                color: rgb(219, 194, 194);
+                                padding-left: 10px;
+                                padding-top: 4px;
+                            }
+
+                            .time {
+                                color: rgb(168, 146, 146);
+                                margin-left: 5px;
+                            }
+
+                        }
+
+                        // .name {
+                        //     color: blue;
+                        //     font-size: 15px;
+                        //     font-weight: bold;
+                        // }
+
+                        .box-content-comment {
+                            width: 90%;
+                            float: right;
+                            background-color: aqua;
+                        }
+
+                        .content-comment {
+                            font-size: 15px;
+                            margin-top: 3px;
+                            color: white;
+                        }
+                    }
+                }
+
+
+            }
+
+            .for-button {
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                margin: 20px 0;
+            }
+
+            .btn-load-more {}
+
+
+        }
+    }
+
+}

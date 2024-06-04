@@ -6,7 +6,9 @@ import {
     getGameByKeyWord, getGameByCategory,
     getCategoryByTagId, ChangePasswordAccount,
     DeleteAccount, getAllAccount, ChangeInforAccount,
-    getAllGame, DeleteGame, ChangeInforGame, createNewGame
+    getAllGame, DeleteGame, ChangeInforGame, createNewGame,
+    getSuggestGame, getComment, createNewSoftware, getAllSoftware,
+    DeleteSoftware, ChangeInforSoftware
 } from '../../services/userService'
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -44,7 +46,26 @@ export const createNewGameAction = (data) => {
 
         } catch (error) {
             console.log(error);
-            toast.error("Tạo tài khoản thất bại")
+            toast.error("Thêm phần mềm thất bại")
+        }
+    }
+}
+
+export const createNewSoftwareAction = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await createNewSoftware(data)
+            if (res && res.errCode == 0) {
+                toast.success("Thêm phần mềm mới thành công")
+            } else {
+                toast.error("Thêm phần mềm mới thất bại")
+            }
+
+            return res;
+
+        } catch (error) {
+            console.log(error);
+            toast.error("Thêm phần mềm thất bại")
         }
     }
 }
@@ -79,6 +100,40 @@ export const DeleteGameAction = (data) => {
         } catch (error) {
             console.log(error);
             toast.error("Xóa game khoản thất bại")
+        }
+    }
+}
+
+export const DeleteSoftwareAction = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await DeleteSoftware(data)
+            if (res && res.errCode == 0) {
+                toast.success("Xóa phần mềm thành công")
+            } else {
+                toast.error("Xóa phần mềm khoản thất bại")
+            }
+
+        } catch (error) {
+            console.log(error);
+            toast.error("Xóa phần mềm khoản thất bại")
+        }
+    }
+}
+
+export const ChangeInforSoftwareAction = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await ChangeInforSoftware(data)
+            if (res && res.errCode == 0) {
+                toast.success("Thay đổi thông tin thành công")
+            } else {
+                toast.error(res.errMessage)
+            }
+
+        } catch (error) {
+            console.log(error);
+            toast.error("Thay đổi thông tin thất bại")
         }
     }
 }
@@ -133,11 +188,6 @@ export const ChangeInforGameAction = (data) => {
         }
     }
 }
-
-
-
-
-
 
 export const getAllCodeAction = (type) => {
     return async (dispatch, getState) => {
@@ -238,9 +288,6 @@ export const getAllTopGame18Action = (limit) => {
         }
     }
 }
-
-
-
 
 export const getGameByIdAction = (id) => {
     return async (dispatch, getState) => {
@@ -467,6 +514,115 @@ export const getAllGameAction = (limit, pageNumber) => {
         }
     }
 }
+
+export const getCommentAction = (gameId, moreCommentNumber) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getComment(gameId, moreCommentNumber);
+            if (res && res.errCode == 0 && res.data) {
+                dispatch({
+                    type: 'COMMENT-GAME',
+                    data: res.data
+                });
+
+                return ({
+                    errCode: res.errCode,
+                    errMessage: res.errMessage,
+                    allDataNumber: res.allDataNumber
+                })
+
+            } else {
+                dispatch({
+                    type: `FAIL`,
+                });
+            }
+        } catch (error) {
+            console.log(error);
+            dispatch({
+                type: `FAIL`,
+            });
+        }
+    }
+}
+
+
+
+export const getGameSuggestAction = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getSuggestGame();
+            if (res && res.errCode == 0 && res.data) {
+                dispatch({
+                    type: 'SUGGEST-GAME',
+                    data: res.data
+                });
+
+                // return ({
+                //     errCode: res.errCode,
+                //     errMessage: res.errMessage,
+                //     allDataNumber: res.allDataNumber
+                // })
+
+            } else {
+                dispatch({
+                    type: `FAIL`,
+                });
+            }
+        } catch (error) {
+            console.log(error);
+            dispatch({
+                type: `FAIL`,
+            });
+        }
+    }
+}
+
+export const getAllSoftwareAction = (limit, pageNumber) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllSoftware(limit, pageNumber)
+            if (res && res.errCode == 0 && res.data) {
+                dispatch({
+                    type: 'ALL-SOFTWARE',
+                    data: res.data
+                });
+
+                return ({
+                    errCode: res.errCode,
+                    errMessage: res.errMessage,
+                    allDataNumber: res.allDataNumber
+                })
+
+            } else {
+                dispatch({
+                    type: `FAIL`,
+                });
+            }
+        } catch (error) {
+            console.log(error);
+            dispatch({
+                type: `FAIL`,
+            });
+        }
+    }
+}
+
+export const changeNavigateAction = (type) => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch({
+                type: 'NAVIGATE',
+                data: type
+            });
+        } catch (error) {
+            console.log(error);
+            dispatch({
+                type: `FAIL`,
+            });
+        }
+    }
+}
+
 
 
 

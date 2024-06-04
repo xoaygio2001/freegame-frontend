@@ -31,14 +31,23 @@ body {
         .body {
             width: 100%;
             // background-color: brown;
+            height: auto;
+            overflow: hidden;
 
-            .left {
+            .left-detailgame {
                 width: 65%;
                 // background-color: aqua;
+                float: left;
                 
             }
 
-            .right {}
+            .right-detailgame {
+                width: 32%;
+                height: 500px;
+                // background-color: aqua;
+                float: right;
+                
+            }
 
         }
 

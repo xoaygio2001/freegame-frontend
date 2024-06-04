@@ -21,6 +21,7 @@
     "react-toastify": "^10.0.5",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
+    "request": "^2.79.0",
     "sass": "^1.77.1",
     "typescript": "^5.4.5",
     "web-vitals": "^2.1.4"

@@ -6,7 +6,10 @@ const createNewGame = (data) => {
 
 const createNewAccount = (data) => {
     return axios.post('/api/create-new-account', data);
+}
 
+const createNewSoftware = (data) => {
+    return axios.post('/api/create-new-software', data);
 }
 
 const ChangePasswordAccount = (data) => {
@@ -30,11 +33,6 @@ const ChangeInforAccount = (data) => {
 const ChangeInforGame = (data) => {
     return axios.post('/api/change-infor-game', data);
 }
-
-
-
-
-
 
 
 const getTopGame = (limit, type, pageNumber) => {
@@ -82,13 +80,26 @@ const getAllGame = (limit, pageNumber) => {
     return axios.get(`/api/get-all-game?limit=${limit}&pageNumber=${pageNumber}`);
 }
 
+const getSuggestGame = () => {
+    return axios.get(`/api/get-suggest-game`);
+}
+
+const getComment = (gameId, moreCommentNumber) => {
+    return axios.get(`/api/get-comment-by-gameid?gameId=${gameId}&moreCommentNumber=${moreCommentNumber}`);
+}
+
+const getAllSoftware = (limit, pageNumber) => {
+    return axios.get(`/api/get-all-software?limit=${limit}&pageNumber=${pageNumber}`);
+}
+
+const DeleteSoftware = (data) => {
+    return axios.post('/api/delete-software', data);
+}
 
 
-
-
-
-
-
+const ChangeInforSoftware = (data) => {
+    return axios.post('/api/change-infor-software', data);
+}
 
 export {
     getAllCode, createNewGame,
@@ -97,5 +108,7 @@ export {
     getGameByKeyWord, getGameByCategory, getCategoryByTagId,
     ChangePasswordAccount, DeleteAccount, getAllAccount,
     ChangeInforAccount, getAllGame, DeleteGame,
-    ChangeInforGame
+    ChangeInforGame, getSuggestGame, getComment,
+    createNewSoftware, getAllSoftware, DeleteSoftware,
+    ChangeInforSoftware
 }
