@@ -5,6 +5,7 @@ import './ManageGame.scss'
 import Header from "../header-footer/Header";
 import OutStandingGame from "../../client/home-page/OutStandingGame"
 import HomeGame from "../../client/home-page/HomeGame"
+import Footer from "../../client/header-footer/Footer";
 
 import { Button, Form, Table } from 'react-bootstrap';
 
@@ -525,8 +526,8 @@ class MangeGame extends Component {
                             }
                         </div>
                     </div>
-                    <div className="footer">
-                    </div>
+
+                    <Footer/>
                 </div>
 
             </div >

@@ -138,7 +138,7 @@ class Game extends Component {
 
 
         return (
-            <div className="home-game">
+            <div className="filter-category">
                 <div className="nav">
                     {categoryByTagId && categoryByTagId.value
                         ?
@@ -182,7 +182,7 @@ class Game extends Component {
                                         </div>
                                         <div className="see">
                                             <NavLink className="download" to={`/detail-game/${item.id}`}>
-                                                TẢI GAME
+                                            <i class="fas fa-download"></i> <span>TẢI GAME</span>
                                             </NavLink>;
                                         </div>
                                     </Col>

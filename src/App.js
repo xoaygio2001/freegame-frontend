@@ -15,6 +15,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import DetailGame from './containers/admin/manage-game/DetailGame';
 import DetailSoftware from './containers/admin/manage-software/DetailSoftware';
+import Footer from './containers/client/header-footer/Footer';
 
 import { Navigate } from 'react-router-dom';
 
@@ -51,6 +52,9 @@ function App() {
         pauseOnHover
         theme="light"
       />
+
+  
+
     </>
   );
 }

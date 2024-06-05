@@ -136,6 +136,8 @@ class Header extends Component {
         let { allTagGame, search, gameByKeyword, activeNavAccount } = this.state
         let { userLogin } = this.props
 
+        console.log('userLogin: ', userLogin)
+
 
         return (
             <div class="header">
@@ -195,6 +197,13 @@ class Header extends Component {
                         </div>
 
                         <div className={activeNavAccount ? "nav-account active" : "nav-account"}>
+                            {userLogin && userLogin.roleId && userLogin.roleId == "R1" &&
+                                <div onClick={() => this.handlePopupSiginSignup3(true)}>
+                                    <i class="fas fa-user-shield"></i>
+                                    <p>Vào trang quản lý</p>
+                                </div>
+                            }
+
                             <div onClick={() => this.handlePopupSiginSignup3(true)}>
                                 <i class="fas fa-key"></i>
                                 <p>Đổi mật khẩu</p>

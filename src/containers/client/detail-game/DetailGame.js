@@ -11,6 +11,7 @@ import DowloadGame from './DowloadGame'
 import CommentGame from './CommentGame';
 import BuyCopyright from "./BuyCopyright";
 import SuggestGame from "./SuggestGame";
+import Footer from "../header-footer/Footer";
 
 import { connect } from "react-redux";
 
@@ -111,7 +112,7 @@ class DetailGame extends Component {
                         </div>
 
                     </div>
-                    <div class="footer"></div>
+                    <Footer/>
                 </div>
 
             </div>

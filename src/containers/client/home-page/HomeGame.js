@@ -111,36 +111,36 @@ class HomeGame extends Component {
                 </div>
 
                 <Container >
-                    <Row className="games"> 
+                    <Row className="games">
 
                         {data && data.length > 0 &&
                             data.map((item, index) => {
                                 return (
                                     <Col xs={5} md={3} key={index} className="game">
-                                            <div className="img"
-                                                style={{ backgroundImage: `url(${item.img})` }}
-                                            />
-                                            <div className="name">{item.name}</div>
+                                        <div className="img"
+                                            style={{ backgroundImage: `url(${item.img})` }}
+                                        />
+                                        <div className="name">{item.name}</div>
 
-                                            <div className="tag">
-                                                <i className="fas fa-tags"></i>
-                                                <p>
-                                                    {item.TagGames && item.TagGames.length > 0 &&
-                                                        item.TagGames.map((itemTag, indexMap) => {
-                                                            return (
-                                                                `${itemTag.AllCode.value},   `
+                                        <div className="tag">
+                                            <i className="fas fa-tags"></i>
+                                            <p>
+                                                {item.TagGames && item.TagGames.length > 0 &&
+                                                    item.TagGames.map((itemTag, indexMap) => {
+                                                        return (
+                                                            `${itemTag.AllCode.value},   `
 
-                                                            )
-                                                        }
                                                         )
                                                     }
-                                                </p>
-                                            </div>
-                                            <div className="see">
-                                                <NavLink className="download" to={`/detail-game/${item.id}`}>
-                                                    TẢI GAME
-                                                </NavLink>;
-                                            </div>
+                                                    )
+                                                }
+                                            </p>
+                                        </div>
+                                        <div className="see">
+                                            <NavLink className="download" to={`/detail-game/${item.id}`}>
+                                                <i class="fas fa-download"></i> <span>TẢI GAME</span>
+                                            </NavLink>;
+                                        </div>
                                     </Col>
                                 )
                             })
@@ -165,7 +165,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getTopGame: (limit, type,pageNumber) => dispatch(Action.getTopGameAction(limit, type,pageNumber)),
+        getTopGame: (limit, type, pageNumber) => dispatch(Action.getTopGameAction(limit, type, pageNumber)),
         getAllTopGame18: (limit) => dispatch(Action.getAllTopGame18Action(limit)),
 
 

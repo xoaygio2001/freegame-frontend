@@ -101,7 +101,7 @@ class NewSoftware extends Component {
         }
 
         return (
-            <div className="home-game">
+            <div className="home-software">
 
                 <div className="nav-2">
                     <span className="title-phan-mem-moi">PHẦN MỀM MỚI NHẤT</span>
@@ -121,7 +121,7 @@ class NewSoftware extends Component {
 
                                         <div className="see">
                                             <NavLink className="download" to={`/detail-game/${item.id}`}>
-                                                TẢI GAME
+                                                <i class="fas fa-download"></i> <span>TẢI</span>
                                             </NavLink>;
                                         </div>
                                     </Col>

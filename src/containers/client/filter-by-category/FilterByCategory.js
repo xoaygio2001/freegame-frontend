@@ -5,6 +5,7 @@ import './FilterByCategory.scss'
 import Header from '../header-footer/Headerr'
 import OutStandingGame from "../home-page/OutStandingGame";
 import Game from "./Game";
+import Footer from "../header-footer/Footer";
 
 import { useParams } from 'react-router-dom';
 
@@ -38,7 +39,7 @@ class FillterByCategory extends Component {
                             <Game />
 
                         </div>
-                        <div class="footer"></div>
+                        <Footer/>
                     </div>
                     
 
