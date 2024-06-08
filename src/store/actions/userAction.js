@@ -8,7 +8,7 @@ import {
     DeleteAccount, getAllAccount, ChangeInforAccount,
     getAllGame, DeleteGame, ChangeInforGame, createNewGame,
     getSuggestGame, getComment, createNewSoftware, getAllSoftware,
-    DeleteSoftware, ChangeInforSoftware
+    DeleteSoftware, ChangeInforSoftware, createNewComment
 } from '../../services/userService'
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -69,6 +69,27 @@ export const createNewSoftwareAction = (data) => {
         }
     }
 }
+
+export const createNewCommentAction = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await createNewComment(data)
+            if (res && res.errCode == 0) {
+                toast.success("Bình luận thành công")
+            } else {
+                toast.error("Bình luận thất bại")
+            }
+
+            return res;
+
+        } catch (error) {
+            console.log(error);
+            toast.error("Bình luận thất bại")
+        }
+    }
+}
+
+
 
 export const DeleteAccountAction = (data) => {
     return async (dispatch, getState) => {
@@ -515,10 +536,10 @@ export const getAllGameAction = (limit, pageNumber) => {
     }
 }
 
-export const getCommentAction = (gameId, moreCommentNumber) => {
+export const getCommentAction = (gameId, moreCommentNumber,type) => {
     return async (dispatch, getState) => {
         try {
-            let res = await getComment(gameId, moreCommentNumber);
+            let res = await getComment(gameId, moreCommentNumber,type);
             if (res && res.errCode == 0 && res.data) {
                 dispatch({
                     type: 'COMMENT-GAME',

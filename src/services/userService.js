@@ -12,6 +12,12 @@ const createNewSoftware = (data) => {
     return axios.post('/api/create-new-software', data);
 }
 
+const createNewComment = (data) => {
+    return axios.post('/api/create-new-comment', data);
+}
+
+
+
 const ChangePasswordAccount = (data) => {
     return axios.post('/api/change-password-account', data);
 }
@@ -84,8 +90,8 @@ const getSuggestGame = () => {
     return axios.get(`/api/get-suggest-game`);
 }
 
-const getComment = (gameId, moreCommentNumber) => {
-    return axios.get(`/api/get-comment-by-gameid?gameId=${gameId}&moreCommentNumber=${moreCommentNumber}`);
+const getComment = (gameId, moreCommentNumber,type) => {
+    return axios.get(`/api/get-comment-by-gameid?gameId=${gameId}&moreCommentNumber=${moreCommentNumber}&type=${type}`);
 }
 
 const getAllSoftware = (limit, pageNumber) => {
@@ -110,5 +116,5 @@ export {
     ChangeInforAccount, getAllGame, DeleteGame,
     ChangeInforGame, getSuggestGame, getComment,
     createNewSoftware, getAllSoftware, DeleteSoftware,
-    ChangeInforSoftware
+    ChangeInforSoftware, createNewComment
 }

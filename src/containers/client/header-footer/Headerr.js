@@ -134,9 +134,7 @@ class Header extends Component {
     render() {
 
         let { allTagGame, search, gameByKeyword, activeNavAccount } = this.state
-        let { userLogin } = this.props
-
-        console.log('userLogin: ', userLogin)
+        let { userLogin } = this.props  
 
 
         return (

@@ -62,12 +62,16 @@ class ManageSoftware extends Component {
             url: '',
 
             allGame: [],
-            limit: 5,
             pageNumber: 1,
             activeEdit: 'null',
             addGame: false,
 
-            allSoftware: []
+            allSoftware: [],
+
+
+            currentPage: 1,
+            allDataNumber: 0,
+            limit: 10,
 
 
         }
@@ -81,8 +85,13 @@ class ManageSoftware extends Component {
         this.props.getAllCodeRedux('PLAYWITH')
 
         let { limit, pageNumber } = this.state
-        this.props.getAllGameRedux(limit, pageNumber)
-        this.props.getAllSoftwareRedux(limit, pageNumber)
+
+        let res = await this.props.getAllSoftwareRedux(limit, pageNumber)
+        if (res && res.errCode === 0) {
+            this.setState({
+                allDataNumber: res.allDataNumber,
+            })
+        }
 
 
     }
@@ -196,6 +205,14 @@ class ManageSoftware extends Component {
         })
     }
 
+    handleChangePageNumber = async (pageId) => {
+        await this.props.getAllSoftwareRedux(this.state.limit, pageId)
+        this.setState({
+            currentPage: pageId
+        })
+
+    }
+
 
 
 
@@ -212,6 +229,27 @@ class ManageSoftware extends Component {
         } = this.state
         let { allGame, activeEdit, allSoftware } = this.state
 
+        let { currentPage, allDataNumber, limit } = this.state
+
+        currentPage = +currentPage;
+
+        let maxPageNumber = Math.ceil(allDataNumber / limit);
+        let arrNumber = [];
+
+        const visiblePages = 5;
+
+        if (allDataNumber > limit) {
+            let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
+            let endPage = Math.min(maxPageNumber, startPage + visiblePages - 1);
+
+            if (endPage - startPage + 1 < visiblePages) {
+                startPage = Math.max(1, endPage - visiblePages + 1);
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                arrNumber.push(i);
+            }
+        }
 
 
         return (
@@ -224,7 +262,10 @@ class ManageSoftware extends Component {
                             <div onClick={() => this.ChangeAction()} className="add"><i class="fas fa-plus"></i> Thêm mới</div>
                         </div>
                         <div className="content">
-                            {addGame == false && <Table striped bordered hover>
+                            {addGame == false && 
+                            <>
+                            
+                            <Table striped bordered hover>
                                 <thead>
                                     <tr>
                                         <th>STT</th>
@@ -263,6 +304,55 @@ class ManageSoftware extends Component {
 
                                 </tbody>
                             </Table>
+                            <div className="pagination">
+                                {currentPage != 1 &&
+                                    <i onClick={() => this.handleChangePageNumber(currentPage - 1)} class="fas fa-chevron-left" />
+                                }
+                                {currentPage > 4 &&
+                                    <div className="left">
+                                        <div
+                                            onClick={() => this.handleChangePageNumber(1)}
+                                            className="min-data-number">
+                                            1
+                                        </div>
+                                        <div className="three-dot">...</div>
+                                    </div>
+                                }
+
+
+                                <div className="numbers">
+                                    {arrNumber.length > 0 &&
+
+                                        arrNumber.map((item, index) => {
+                                            return (
+                                                <div
+                                                    onClick={() => this.handleChangePageNumber(item)}
+                                                    className={item == currentPage ? 'number active' : 'number'}>
+                                                    {item}
+                                                </div>
+                                            )
+                                        })
+
+                                    }
+
+                                </div>
+
+                                {currentPage < (maxPageNumber - 4) &&
+                                    <div className="right">
+                                        <div className="three-dot">...</div>
+                                        <div
+                                            onClick={() => this.handleChangePageNumber(maxPageNumber)}
+                                            className="max-data-number">{maxPageNumber}</div>
+                                    </div>
+                                }
+
+                                {currentPage != maxPageNumber  && 
+                                    <i onClick={() => this.handleChangePageNumber(currentPage + 1)} class="fas fa-chevron-right" />
+                                }
+
+                            </div>
+</>
+                            
                             }
                             {addGame == true &&
                                 <Form>
@@ -338,7 +428,7 @@ class ManageSoftware extends Component {
                             }
                         </div>
                     </div>
-                    <Footer/>
+                    <Footer />
                 </div>
 
             </div >

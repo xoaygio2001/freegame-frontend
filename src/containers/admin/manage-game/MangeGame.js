@@ -67,6 +67,10 @@ class MangeGame extends Component {
             activeEdit: 'null',
             addGame: false,
 
+            currentPage: 1,
+            allDataNumber: 0,
+            limit: 10,
+
 
         }
     }
@@ -78,8 +82,15 @@ class MangeGame extends Component {
         this.props.getAllCodeRedux('OS')
         this.props.getAllCodeRedux('PLAYWITH')
 
-        let { limit, pageNumber } = this.state
-        this.props.getAllGameRedux(limit, pageNumber)
+        let { limit, pageNumber, currentPage } = this.state
+
+        let res = await this.props.getAllGameRedux(limit, currentPage)
+
+        if (res && res.errCode === 0) {
+            this.setState({
+                allDataNumber: res.allDataNumber,
+            })
+        }
 
     }
 
@@ -250,6 +261,14 @@ class MangeGame extends Component {
         })
     }
 
+    handleChangePageNumber = async (pageId) => {
+        await this.props.getAllGameRedux(this.state.limit, pageId)
+        this.setState({
+            currentPage: pageId
+        })
+
+    }
+
 
 
 
@@ -264,8 +283,30 @@ class MangeGame extends Component {
             categories,
             selectLanguage, selectOS, selectPlayWith, addGame
         } = this.state
+
         let { allGame, activeEdit } = this.state
 
+        let { currentPage, allDataNumber, limit } = this.state
+
+        currentPage = +currentPage;
+
+        let maxPageNumber = Math.ceil(allDataNumber / limit);
+        let arrNumber = [];
+
+        const visiblePages = 5;
+
+        if (allDataNumber > limit) {
+            let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
+            let endPage = Math.min(maxPageNumber, startPage + visiblePages - 1);
+
+            if (endPage - startPage + 1 < visiblePages) {
+                startPage = Math.max(1, endPage - visiblePages + 1);
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                arrNumber.push(i);
+            }
+        }
 
 
         return (
@@ -276,49 +317,100 @@ class MangeGame extends Component {
                         <div className="title">Quản lý Game</div>
                         <div className="add-user">
                             <div onClick={() => this.ChangeAction()} className="add"><i class="fas fa-plus"></i> Thêm mới</div>
-                        </div>  
+                        </div>
                         <div className="content">
-                            {addGame == false && <Table striped bordered hover>
-                                <thead>
-                                    <tr>
-                                        <th>STT</th>
-                                        <th>ID</th>
-                                        <th>Tên game</th>
-                                        <th>Seri</th>
-                                        <th>Điểm</th>
-                                        <th>Ngày tạo</th>
-                                        <th>Ngày sửa lần cuối</th>
-                                        <th>Tác vụ</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {allGame && allGame.length > 0 &&
-                                        allGame.map((item, index) => {
-                                            return (
-                                                <tr key={index}>
-                                                    <th>{index + 1}</th>
-                                                    <th>{item.id}</th>
-                                                    <th>{item.name}</th>
-                                                    <th>{item.seri}</th>
-                                                    <th>
-                                                        {item.point}
-                                                    </th>
-                                                    <th>{moment(item.createdAt).format('L')}</th>
-                                                    <th>{moment(item.updatedAt).format('L')}</th>
-                                                    <th>
-                                                        <i onClick={() => this.handleEditGame(item)} class="far fa-edit"></i>
+                            {addGame == false &&
+                                <>
+                                    <Table striped bordered hover>
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>ID</th>
+                                                <th>Tên game</th>
+                                                <th>Seri</th>
+                                                <th>Điểm</th>
+                                                <th>Ngày tạo</th>
+                                                <th>Ngày sửa lần cuối</th>
+                                                <th>Tác vụ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {allGame && allGame.length > 0 &&
+                                                allGame.map((item, index) => {
+                                                    return (
+                                                        <tr key={index}>
+                                                            <th>{index + 1}</th>
+                                                            <th>{item.id}</th>
+                                                            <th>{item.name}</th>
+                                                            <th>{item.seri}</th>
+                                                            <th>
+                                                                {item.point}
+                                                            </th>
+                                                            <th>{moment(item.createdAt).format('L')}</th>
+                                                            <th>{moment(item.updatedAt).format('L')}</th>
+                                                            <th>
+                                                                <i onClick={() => this.handleEditGame(item)} class="far fa-edit"></i>
 
 
-                                                        <i onClick={() => this.handleDeleteGame(item)} class="fas fa-trash-alt"></i>
-                                                    </th>
-                                                </tr>
-                                            )
-                                        })
-                                    }
+                                                                <i onClick={() => this.handleDeleteGame(item)} class="fas fa-trash-alt"></i>
+                                                            </th>
+                                                        </tr>
+                                                    )
+                                                })
+                                            }
 
 
-                                </tbody>
-                            </Table>
+                                        </tbody>
+                                    </Table>
+                                    <div className="pagination">
+                                        {currentPage != 1 &&
+                                            <i onClick={() => this.handleChangePageNumber(currentPage - 1)} class="fas fa-chevron-left" />
+                                        }
+                                        {currentPage > 4 &&
+                                            <div className="left">
+                                                <div
+                                                    onClick={() => this.handleChangePageNumber(1)}
+                                                    className="min-data-number">
+                                                    1
+                                                </div>
+                                                <div className="three-dot">...</div>
+                                            </div>
+                                        }
+
+
+                                        <div className="numbers">
+                                            {arrNumber.length > 0 &&
+
+                                                arrNumber.map((item, index) => {
+                                                    return (
+                                                        <div
+                                                            onClick={() => this.handleChangePageNumber(item)}
+                                                            className={item == currentPage ? 'number active' : 'number'}>
+                                                            {item}
+                                                        </div>
+                                                    )
+                                                })
+
+                                            }
+
+                                        </div>
+
+                                        {currentPage < (maxPageNumber - 4) &&
+                                            <div className="right">
+                                                <div className="three-dot">...</div>
+                                                <div
+                                                    onClick={() => this.handleChangePageNumber(maxPageNumber)}
+                                                    className="max-data-number">{maxPageNumber}</div>
+                                            </div>
+                                        }
+
+                                        {currentPage != maxPageNumber && arrNumber.length > 0 &&
+                                            <i onClick={() => this.handleChangePageNumber(currentPage + 1)} class="fas fa-chevron-right" />
+                                        }
+
+                                    </div>
+                                </>
+
                             }
                             {addGame == true &&
                                 <Form>
@@ -527,7 +619,7 @@ class MangeGame extends Component {
                         </div>
                     </div>
 
-                    <Footer/>
+                    <Footer />
                 </div>
 
             </div >

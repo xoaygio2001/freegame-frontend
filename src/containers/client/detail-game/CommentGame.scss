@@ -134,7 +134,7 @@
             margin-top: 80px;
 
             .form-select {
-                width: 80px;
+                width: 90px;
                 border: none;
                 background-color: transparent;
                 color: white;
@@ -144,6 +144,15 @@
                 }
 
             }
+        }
+
+        .for-button {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
         }
 
         .other-comment {
@@ -254,12 +263,19 @@
 
                 }
 
+                .my-comment{
+                    width: 90%;
+                    float: right;
+                }
+
                 .child-comment {
                     width: 90%;
                     margin-left: 70px;
                     margin-top: 20px;
                     height: auto;
                     overflow: hidden;
+
+
 
                     .left {
                         margin-left: 20px;
@@ -332,22 +348,20 @@
                     }
                 }
 
+                .my-comment{
+                    margin-bottom: 10px;
+                }
+
 
             }
 
-            .for-button {
-                width: 100%;
-                height: auto;
-                overflow: hidden;
-                display: flex;
-                justify-content: center;
-                margin: 20px 0;
-            }
 
-            .btn-load-more {}
+
 
 
         }
+
+
     }
 
 }

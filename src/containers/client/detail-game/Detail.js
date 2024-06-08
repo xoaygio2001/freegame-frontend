@@ -25,9 +25,7 @@ class ImageGame extends Component {
             <div class="detail-game">
                 <div class="title">
                     <div class="name">
-                        <i class="fa-solid fa-circle-info"></i>
-                        CHI TIẾT GAME {gameFather.name}
-
+                    <i class="fas fa-info-circle"></i> CHI TIẾT GAME {gameFather.name}
                     </div>
                     <div class="line"></div>
                 </div>

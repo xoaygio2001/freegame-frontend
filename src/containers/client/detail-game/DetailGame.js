@@ -36,15 +36,16 @@ class DetailGame extends Component {
             game: {},
             suggestGame: [],
             commentGame: [],
+            allDataNumber: 0,
             moreCommentNumber: 1,
-            allDataNumber: 0
+            typeComment: "NEW"
         }
     }
 
     async componentDidMount() {
         this.props.getGameById(this.props.params.id)
         this.props.getGameSuggest();
-        let res = await this.props.getCommentGame(this.props.params.id, this.state.moreCommentNumber);
+        let res = await this.props.getCommentGame(this.props.params.id, this.state.moreCommentNumber,this.state.typeComment);
 
         if (res && res.errCode == 0) {
             this.setState({
@@ -89,8 +90,11 @@ class DetailGame extends Component {
                 <div class="content-container">
                     <Header />
                     <div class="body">
+                        <div className="header-img-game">
+                            TẢI GAME <span>{game && game.name}</span> 
+                        </div>
                         <div class="left-detailgame">
-                            {!_.isEmpty(game) && game.img ? <ImageGame imgFather={game.img} /> : <ImageGame />}
+                            {!_.isEmpty(game) && game.img ? <ImageGame nameGame={game.name} imgFather={game.img} /> : <ImageGame />}
 
                             {!_.isEmpty(game) && <Detail gameFather={game} />}
 
@@ -104,15 +108,13 @@ class DetailGame extends Component {
 
                         </div>
 
-                        <div class="right-detailgame">
-
+                        <div class="right-detailgame ">
                             {!_.isEmpty(game) && <BuyCopyright gameFather={game} />}
                             {!_.isEmpty(suggestGame) && <SuggestGame suggestGame={suggestGame} />}
-
                         </div>
 
                     </div>
-                    <Footer/>
+                    <Footer />
                 </div>
 
             </div>
@@ -132,7 +134,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getGameById: (id) => dispatch(Action.getGameByIdAction(id)),
         getGameSuggest: () => dispatch(Action.getGameSuggestAction()),
-        getCommentGame: (gameId, moreCommentNumber) => dispatch(Action.getCommentAction(gameId, moreCommentNumber)),
+        getCommentGame: (gameId, moreCommentNumber,type) => dispatch(Action.getCommentAction(gameId, moreCommentNumber,type)),
     }
 }
 

@@ -15,11 +15,14 @@
             color: white;
             font-size: 22px;
             font-weight: 700;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
             i {
                 font-size: 32px;
-                border-bottom: 4px solid red;
-                background-color: red;
+                // border-bottom: 4px solid red;
+                // background-color: red;
             }
         }
     }

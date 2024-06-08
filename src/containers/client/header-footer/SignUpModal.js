@@ -104,6 +104,12 @@ class SignUpModal extends Component {
         }
     }
 
+    doSomething = (e) => {
+        if (e.keyCode === 13) {
+            this.handleSignUp();
+        }
+    }
+
     render() {
 
         let { setShow, handlePopupSiginSignup } = this.props
@@ -113,7 +119,7 @@ class SignUpModal extends Component {
             <Modal className="SignUpModal" show={setShow} onHide={() => handlePopupSiginSignup(false)}>
                 <Modal.Header className="modal-header">
                     <div class="logo"></div>
-                    <Modal.Title>Đăng nhập vào Game Chùa</Modal.Title>
+                    <Modal.Title>Đăng ký tài khoản</Modal.Title>
                     <i onClick={() => handlePopupSiginSignup(false)} class="fas fa-times close"></i>
                 </Modal.Header  >
                 <Modal.Body>
@@ -121,6 +127,7 @@ class SignUpModal extends Component {
                         <Form.Group className="mb-3 input-infor" >
                             <Form.Label>Tài khoản</Form.Label>
                             <Form.Control
+                            onKeyDown={(e) => this.doSomething(e)}
                                 type="text"
                                 placeholder="Tài khoản"
                                 autoFocus
@@ -132,6 +139,7 @@ class SignUpModal extends Component {
                             className="mb-3 input-infor">
                             <Form.Label>Mặt khẩu</Form.Label>
                             <Form.Control
+                            onKeyDown={(e) => this.doSomething(e)}
                                 type="password"
                                 placeholder="Mặt khẩu"
                                 value={password}
@@ -143,6 +151,7 @@ class SignUpModal extends Component {
                             className="mb-3 input-infor">
                             <Form.Label>Nhập lại mặt khẩu</Form.Label>
                             <Form.Control
+                            onKeyDown={(e) => this.doSomething(e)}
                                 type="password"
                                 placeholder="Nhập lại mặt khẩu"
                                 value={password2}
@@ -151,7 +160,7 @@ class SignUpModal extends Component {
                         </Form.Group>
 
                         <Form.Group className="mb-3 access-login">
-                            <div onClick={() => this.handleSignUp()} className="btn-login">Đăng ký</div>
+                            <div onKeyDown={(e) => this.doSomething(e)} onClick={() => this.handleSignUp()} className="btn-login">Đăng ký</div>
                         </Form.Group>
 
                         <Form.Group

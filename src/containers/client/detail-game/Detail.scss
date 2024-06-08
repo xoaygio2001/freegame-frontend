@@ -1,13 +1,14 @@
 .detail-game {
-    height: 400px;
+    height: 350px;
     width: 95%;
-    margin: 30px 0 0 20px;
+    margin: 50px 0 0 20px;
     // background-color: darkkhaki;
 
     .title {
         width: 100%;
         display: flex;
         // background-color: chartreuse;
+        justify-content: space-between;
 
         .name {
             width: 70%;
@@ -15,6 +16,9 @@
             color: white;
             font-size: 22px;
             font-weight: 700;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
             i {
                 font-size: 32px;
@@ -22,8 +26,9 @@
         }
 
         .line {
-            width: 30%;
+            width: 27%;
             border-bottom: 3px solid red;
+            margin-bottom: 10px;
         }
     }
 

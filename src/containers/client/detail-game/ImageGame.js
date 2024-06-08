@@ -16,16 +16,14 @@ class ImageGame extends Component {
     }
 
     render() {
-        let { imgFather } = this.props
+        let { imgFather, nameGame } = this.props
 
 
         return (
             <div class="img-game">
                 <div class="title">
                     <div class="name">
-                    <i class="fas fa-images"></i>
-                        ẢNH GAME
-                        SHADOW GAMBIT
+                        <i class="fas fa-images"></i> Ảnh game {nameGame}
                     </div>
                     <div class="line"></div>
                 </div>

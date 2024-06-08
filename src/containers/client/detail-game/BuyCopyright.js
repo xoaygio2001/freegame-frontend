@@ -31,7 +31,10 @@ class BuyCopyright extends Component {
                         <a href={gameFather.copyright} type="button" class="btn btn-success btn-BuyCopyright">CLICK VÀO ĐÂY ĐỂ MUA BẢN QUYỀN</a>
                     </div>
                 </div>
+
+
             </div>
+            
         )
     }
 }

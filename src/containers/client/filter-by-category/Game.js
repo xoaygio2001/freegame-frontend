@@ -107,32 +107,25 @@ class Game extends Component {
         let maxPageNumber = Math.floor((allDataNumber / limit))
         let arrNumber = [];
 
-        if (currentPage == 1) {
-            arrNumber = [1, 2, 3]
-        }
-        if (currentPage == 2) {
-            arrNumber = [1, 2, 3, 4]
-        }
-        if (currentPage == 3) {
-            arrNumber = [1, 2, 3, 4, 5]
-        }
-        if (currentPage == 4) {
-            arrNumber = [1, 2, 3, 4, 5, 6]
-        }
-        if (currentPage > 4) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2]
-        }
+        if(allDataNumber <= limit) {
 
-        if (currentPage == maxPageNumber && maxPageNumber != 1) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage]
-        }
-        if (currentPage == maxPageNumber - 1 && maxPageNumber != 1 && maxPageNumber != 2) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1]
-        }
-        if (currentPage == maxPageNumber - 2 && maxPageNumber != 1 && maxPageNumber != 2 && maxPageNumber != 3) {
+        } else if (currentPage == 1) {
+            arrNumber = [1, 2, 3]
+        } else if (currentPage == 2) {
+            arrNumber = [1, 2, 3, 4]
+        } else if (currentPage == 3) {
+            arrNumber = [1, 2, 3, 4, 5]
+        } else if (currentPage == 4) {
+            arrNumber = [1, 2, 3, 4, 5, 6]
+        } else if (currentPage > 4) {
             arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2]
-        }
-        if (currentPage == maxPageNumber - 3 && maxPageNumber != 1 && maxPageNumber != 2 && maxPageNumber != 3 && maxPageNumber != 4) {
+        } else if (currentPage == maxPageNumber && maxPageNumber != 1) {
+            arrNumber = [currentPage - 2, currentPage - 1, currentPage]
+        } else if (currentPage == maxPageNumber - 1 && maxPageNumber != 1 && maxPageNumber != 2) {
+            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1]
+        } else if (currentPage == maxPageNumber - 2 && maxPageNumber != 1 && maxPageNumber != 2 && maxPageNumber != 3) {
+            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2]
+        } else if (currentPage == maxPageNumber - 3 && maxPageNumber != 1 && maxPageNumber != 2 && maxPageNumber != 3 && maxPageNumber != 4) {
             arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2, currentPage + 3]
         }
 
@@ -236,7 +229,7 @@ class Game extends Component {
                         </div>
                     }
 
-                    {currentPage != maxPageNumber &&
+                    {currentPage != maxPageNumber && arrNumber.length > 0 &&
                         <i onClick={() => this.handleChangePageNumber(this.props.params.tagId, currentPage + 1)} class="fas fa-chevron-right" />
                     }
 

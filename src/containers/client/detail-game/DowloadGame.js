@@ -24,8 +24,7 @@ class ImageGame extends Component {
             <div class="dowload-game">
             <div class="title">
                 <div class="name">
-                    <i class="fas fa-cloud-download-alt"></i>
-                    LINK TẢI GAME {gameFather.name}
+                    <i class="fas fa-cloud-download-alt"></i> LINK TẢI GAME {gameFather.name}
                 </div>
                 <div class="line"></div>
             </div>

@@ -190,9 +190,6 @@ const rootReducer = (state = initState, action) => {
             }
             break;
 
-
-
-
         case 'TOPGAME':
 
             switch (action.typeTop) {

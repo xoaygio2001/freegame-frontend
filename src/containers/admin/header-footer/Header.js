@@ -60,9 +60,6 @@ class Header extends Component {
 
     render() {
 
-        console.log('state: ', this.state)
-        console.log('props: ', this.props)
-
 
         return (
             <div className="header-admin">

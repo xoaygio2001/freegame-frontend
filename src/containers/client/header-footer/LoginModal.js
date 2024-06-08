@@ -98,7 +98,6 @@ class LoginModal extends Component {
                 }
 
                 window.location.reload()
-                console.log('res ', res)
 
             } else {
                 toast.warning('Thông tin tài khoản hoặc mật khẩu không chính xác')
@@ -106,6 +105,12 @@ class LoginModal extends Component {
 
         } else {
             toast.warning('Vui lòng điền đầy đủ thông tin!')
+        }
+    }
+
+    doSomething = (e) => {
+        if (e.keyCode === 13) {
+            this.handleSignUp();
         }
     }
 
@@ -127,6 +132,7 @@ class LoginModal extends Component {
                         <Form.Group className="mb-3 input-infor" >
                             <Form.Label>Tài khoản</Form.Label>
                             <Form.Control
+                                onKeyDown={(e) => this.doSomething(e)}
                                 type="text"
                                 placeholder="Tài khoản"
                                 autoFocus
@@ -141,6 +147,7 @@ class LoginModal extends Component {
                         >
                             <Form.Label>Mặt khẩu</Form.Label>
                             <Form.Control
+                                onKeyDown={(e) => this.doSomething(e)}
                                 type="password"
                                 placeholder="Mặt khẩu"
                                 value={password}
@@ -151,6 +158,7 @@ class LoginModal extends Component {
 
                         <Form.Group className="mb-3 check">
                             <Form.Check
+                                onKeyDown={(e) => this.doSomething(e)}
                                 onChange={(e) => this.handleOnChangeCheckBox(e, 'rememberLogin')}
                                 type="checkbox" label="Ghi nhớ đăng nhập" />
                         </Form.Group>

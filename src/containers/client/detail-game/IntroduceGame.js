@@ -23,8 +23,7 @@ class ImageGame extends Component {
             <div class="introduce-game">
                 <div class="title">
                     <div class="name">
-                        <i class="fas fa-sun"></i>
-                        GIỚI THIỆU GAME {gameFather.name}
+                        <i class="fas fa-sun"></i> GIỚI THIỆU GAME {gameFather.name}
                     </div>
                 </div>
                 <div class="detail">

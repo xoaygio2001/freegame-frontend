@@ -4,9 +4,11 @@
     // background-color: blueviolet;
     margin: 30px 0 0 20px;
 
+
     .title {
         width: 100%;
         display: flex;
+        justify-content: space-between;
         // background-color: chartreuse;
 
         .name {
@@ -15,6 +17,9 @@
             color: white;
             font-size: 22px;
             font-weight: 700;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
             i {
                 font-size: 32px;
@@ -22,8 +27,12 @@
         }
 
         .line {
-            width: 30%;
+            width: 27%;
             border-bottom: 3px solid red;
+            margin-bottom: 10px;
+            
+
+
         }
     }
 

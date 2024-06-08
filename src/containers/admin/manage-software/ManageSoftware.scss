@@ -48,6 +48,107 @@ body {
                     color: white;
                 }
 
+                .pagination {
+                    height: 120px;
+                    width: 50%;
+                    margin: 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+
+                    .left {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .right {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .numbers {
+                        display: flex;
+
+                        .active {
+                            border: 3px solid red;
+                        }
+
+                        .number {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 24px;
+                            margin: 0 12px;
+                            height: 45px;
+                            width: 45px;
+                            border-radius: 50%;
+                            cursor: pointer;
+
+                            &:hover {
+                                border: 3px solid blue;
+                            }
+                        }
+                    }
+
+                    .three-dot {
+                        color: white;
+                        font-size: 26px;
+                    }
+
+                    .max-data-number {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 24px;
+                        margin: 0 12px;
+                        height: 45px;
+                        width: 45px;
+                        border-radius: 50%;
+                        cursor: pointer;
+
+                        &:hover {
+                            border: 3px solid blue;
+                        }
+                    }
+
+                    .min-data-number {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 24px;
+                        margin: 0 12px;
+                        height: 45px;
+                        width: 45px;
+                        border-radius: 50%;
+
+                        cursor: pointer;
+
+                        &:hover {
+                            border: 3px solid blue;
+                        }
+                    }
+
+                    i {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0 7px;
+                        font-size: 26px;
+                        color: white;
+                        height: 45px;
+                        width: 45px;
+                        border-radius: 50%;
+                        cursor: pointer;
+
+                        &:hover {
+                            border: 3px solid blue;
+                        }
+                    }
+                }
+
                 .add-user {
                     width: 100%;
                     display: flex;
@@ -78,6 +179,8 @@ body {
                         }
                     }
                 }
+            
+
             }
 
         }

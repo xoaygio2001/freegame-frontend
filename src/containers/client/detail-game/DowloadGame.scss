@@ -16,11 +16,12 @@
             color: white;
             font-size: 22px;
             font-weight: 700;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
             i {
                 font-size: 32px;
-                border-bottom: 4px solid red;
-                background-color: red;
             }
         }
     }
@@ -75,6 +76,8 @@
 
                     &:hover{
                         cursor: pointer;
+                    background-color: rgb(209, 26, 26);
+
                     }
 
                 }

@@ -34,19 +34,36 @@ body {
             height: auto;
             overflow: hidden;
 
+            .header-img-game {
+                width: 100%;
+                font-size: 30px;
+                font-weight: 600;
+                text-transform: uppercase;
+                text-align: center;
+                color: white;
+                margin: 20px 0;
+
+                span {
+                    font-size: 30px;
+
+                    font-weight: 600;
+                    color: orange;
+                }
+            }
+
             .left-detailgame {
                 width: 65%;
                 // background-color: aqua;
                 float: left;
-                
+
             }
 
             .right-detailgame {
                 width: 32%;
                 height: 500px;
-                // background-color: aqua;
                 float: right;
-                
+            
+
             }
 
         }

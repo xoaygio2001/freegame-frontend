@@ -172,41 +172,25 @@ class MangeUser extends Component {
         let { allAccount, activeEdit, arrRole, accountEdit,
             currentPage, allDataNumber, limit,
         } = this.state;
-
+        
         currentPage = +currentPage;
-        let maxPageNumber = Math.floor((allDataNumber / limit))
-
-
+        
+        let maxPageNumber = Math.ceil(allDataNumber / limit);
         let arrNumber = [];
-
-
-        if (currentPage == 1) {
-            arrNumber = [1, 2, 3]
-        }
-        if (currentPage == 2) {
-            arrNumber = [1, 2, 3, 4]
-        }
-        if (currentPage == 3) {
-            arrNumber = [1, 2, 3, 4, 5]
-        }
-        if (currentPage == 4) {
-            arrNumber = [1, 2, 3, 4, 5, 6]
-        }
-        if (currentPage > 4) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2]
-        }
-
-        if (currentPage == maxPageNumber && maxPageNumber != 1) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage]
-        }
-        if (currentPage == maxPageNumber - 1 && maxPageNumber != 1 && maxPageNumber != 2) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1]
-        }
-        if (currentPage == maxPageNumber - 2 && maxPageNumber != 1 && maxPageNumber != 2 && maxPageNumber != 3) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2]
-        }
-        if (currentPage == maxPageNumber - 3 && maxPageNumber != 1 && maxPageNumber != 2 && maxPageNumber != 3 && maxPageNumber != 4) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2, currentPage + 3]
+        
+        const visiblePages = 5; 
+        
+        if (allDataNumber > limit) {
+            let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
+            let endPage = Math.min(maxPageNumber, startPage + visiblePages - 1);
+        
+            if (endPage - startPage + 1 < visiblePages) {
+                startPage = Math.max(1, endPage - visiblePages + 1);
+            }
+        
+            for (let i = startPage; i <= endPage; i++) {
+                arrNumber.push(i);
+            }
         }
 
         return (
@@ -320,14 +304,14 @@ class MangeUser extends Component {
                                     </div>
                                 }
 
-                                {currentPage != maxPageNumber &&
+                                {currentPage != maxPageNumber  && 
                                     <i onClick={() => this.handleChangePageNumber(currentPage + 1)} class="fas fa-chevron-right" />
                                 }
 
                             </div>
                         </div>
                     </div>
-                    <Footer/>
+                    <Footer />
                 </div>
 
             </div >
