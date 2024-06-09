@@ -32,7 +32,6 @@ class ImageGame extends Component {
                         style={{ backgroundImage: `url(${imgFather})` }}
                     />
                 }
-
             </div>
         )
     }
