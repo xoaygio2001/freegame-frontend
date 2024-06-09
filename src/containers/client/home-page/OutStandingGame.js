@@ -30,7 +30,7 @@ class OutStandingGame extends Component {
 
     async componentDidMount() {
 
-        this.props.getTopGameRedux(5, 'OUTSTANDING')
+        this.props.getTopGameRedux(5, 'OUTSTANDING', 1)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -49,28 +49,47 @@ class OutStandingGame extends Component {
     render() {
         let { outStandingGame } = this.state
 
-
+        let dataFake = [1, 2, 3, 4, 5, 6, 7, 8];
 
         return (
             <div class="outstanding-game">
-                <Carousel className="games">
 
-                    {outStandingGame && outStandingGame.length > 0 &&
-                        outStandingGame.map((item, index) => {
-                            return (
-                                <Carousel.Item onClick={() => this.handleClickImage(item.id)} key={index} className="game">
-                                    <div className="img"
-                                        style={{ backgroundImage: `url(${item.img})` }}
-                                    />
-                                    <Carousel.Caption>
-                                        <p>{item.name}</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                            )
-                        })
-                    }
+                {(outStandingGame && outStandingGame.length > 0) ?
 
-                </Carousel>
+                    <Carousel className="games">
+                        {
+                            outStandingGame.map((item, index) => {
+                                return (
+                                    <Carousel.Item onClick={() => this.handleClickImage(item.id)} key={index} className="game">
+                                        <div className="img"
+                                            style={{ backgroundImage: `url(${item.img})` }}
+                                        />
+                                        <Carousel.Caption>
+                                            <p>{item.name}</p>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+                                )
+                            })
+                        }
+
+                    </Carousel>
+                    :
+                    <Carousel className="games">
+                        {
+                            dataFake.map((item, index) => {
+                                return (
+                                    <Carousel.Item key={index} className="game">
+                                        <div className="img"
+                                            style={{ backgroundImage: `url(https://onlinetools.com/images/examples-onlineimagetools/empty-translucent-image.png)` }}
+                                        />
+                                        <Carousel.Caption>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+                                )
+                            })
+                        }
+                    </Carousel>
+                }
             </div>
         )
     }
@@ -84,7 +103,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getTopGameRedux: (limit, type) => dispatch(Action.getTopGameAction(limit, type))
+        getTopGameRedux: (limit, type, pageNumber) => dispatch(Action.getTopGameAction(limit, type, pageNumber))
     }
 }
 

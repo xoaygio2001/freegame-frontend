@@ -49,8 +49,8 @@ class Header extends Component {
     }
 
     async componentDidMount() {
-        this.props.getAllTagGame()
-        this.checkAccount()
+        await this.props.getAllTagGame()
+        await this.checkAccount()
     }
 
     checkAccount = () => {

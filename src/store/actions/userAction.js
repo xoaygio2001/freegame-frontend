@@ -259,10 +259,11 @@ export const getAllTagGameAction = () => {
 }
 
 
-export const getTopGameAction = (limit, type) => {
+export const getTopGameAction = (limit, type,pageNumber) => {
     return async (dispatch, getState) => {
         try {
-            let res = await getTopGame(limit, type)
+            let res = await getTopGame(limit, type,pageNumber)
+
             if (res && res.errCode == 0 && res.data) {
                 dispatch({
                     type: 'TOPGAME',

@@ -42,25 +42,13 @@ class SignUpModal extends Component {
     }
 
     async componentDidMount() {
-        this.props.getAllTagGame()
-
 
     }
 
 
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // if (prevProps.setShow !== this.props.setShow) {
-        //     this.setState({
-        //         setShow: this.props.setShow
-        //     })
-        // }
 
-        // if (prevProps.setShow !== this.props.setShow) {
-        //     this.setState({
-        //         setShow: this.props.setShow
-        //     })
-        // }
     }
 
     handleGoHome = () => {
@@ -190,14 +178,11 @@ class SignUpModal extends Component {
 const mapStateToProps = (state) => {
     return {
         game: state.game,
-        allTagGame: state.allTagGame
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getGameById: (id) => dispatch(Action.getGameByIdAction(id)),
-        getAllTagGame: () => dispatch(Action.getAllTagGameAction()),
         CreateNewAccount: (data) => dispatch(Action.createNewAccountAction(data)),
 
     }

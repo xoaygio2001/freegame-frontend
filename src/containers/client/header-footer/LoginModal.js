@@ -40,7 +40,6 @@ class LoginModal extends Component {
     }
 
     async componentDidMount() {
-        this.props.getAllTagGame()
 
     }
 
@@ -196,16 +195,12 @@ class LoginModal extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        game: state.game,
-        allTagGame: state.allTagGame,
         userLogin: state.userLogin
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getGameById: (id) => dispatch(Action.getGameByIdAction(id)),
-        getAllTagGame: () => dispatch(Action.getAllTagGameAction()),
         getLoginIntoSystem: (username, password, rememberLogin) => dispatch(Action.getLoginIntoSystemAction(username, password, rememberLogin)),
 
 

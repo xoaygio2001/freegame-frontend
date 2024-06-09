@@ -203,33 +203,20 @@ class DetailSoftware extends Component {
 
     handleCreateNewGame = async () => {
         let {
-            name, img, contentMarkdown, contentHTML, capacity,
-            partNumber, playerNumber, ram, seri, selectCategory,
-            selectLanguage, selectPlayWith, selectOS, url, point
+            name, img, contentMarkdown, contentHTML, url, point
         } = this.state
 
         if (
-            !name || !img || !url || !contentMarkdown || !contentHTML || !capacity ||
-            !partNumber || !playerNumber || !ram || !seri || !selectCategory ||
-            !selectLanguage || !selectPlayWith || !selectOS || !point
+            !name || !img || !url || !contentMarkdown || !contentHTML || !point
         ) {
             console.log('thieu parameter')
         } else {
-            let res = await this.props.createNewGameActionRedux({
+            let res = await this.props.createNewSoftwareActionRedux({
                 name: name,
                 img: img,
                 url: url,
                 contentMarkdown: contentMarkdown,
                 contentHTML: contentHTML,
-                capacity: capacity,
-                partNumber: partNumber,
-                playerNumber: playerNumber,
-                ram: ram,
-                seri: seri,
-                tags: selectCategory,
-                language: selectLanguage,
-                playWith: selectPlayWith,
-                win: selectOS,
                 point: point
             })
 
@@ -238,7 +225,7 @@ class DetailSoftware extends Component {
                 window.scrollTo(0, 0);
 
                 setTimeout(() => {
-                    this.props.history(`/admin/detail-software/${res.gameId}`)
+                    this.props.history(`/admin/detail-software/${res.softwareId}`)
                 }, 1000);
             }
 
@@ -455,11 +442,8 @@ class DetailSoftware extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        Category: state.category,
-        Language: state.language,
-        OS: state.os,
-        PlayWith: state.playWith,
-        game: state.game
+        allGame: state.allGame,
+        allSoftware: state.allSoftware
     }
 }
 
@@ -470,8 +454,7 @@ const mapDispatchToProps = (dispatch) => {
         getGameByIdRedux: (id) => dispatch(Action.getGameByIdAction(id)),
         ChangeInforGameRedux: (data) => dispatch(Action.ChangeInforGameAction(data)),
         ChangeInforSoftwareRedux: (data) => dispatch(Action.ChangeInforSoftwareAction(data)),
-        createNewGameActionRedux: (data) => dispatch(Action.createNewGameAction(data)),
-
+        createNewSoftwareActionRedux: (data) => dispatch(Action.createNewSoftwareAction(data)),
 
 
     }

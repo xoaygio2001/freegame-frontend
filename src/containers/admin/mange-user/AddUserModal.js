@@ -44,9 +44,6 @@ class AddUserModal extends Component {
     }
 
     async componentDidMount() {
-        this.props.getAllTagGame()
-
-
     }
 
 
@@ -192,18 +189,13 @@ class AddUserModal extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        game: state.game,
-        allTagGame: state.allTagGame,
         role: state.role
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getGameById: (id) => dispatch(Action.getGameByIdAction(id)),
-        getAllTagGame: () => dispatch(Action.getAllTagGameAction()),
         CreateNewAccount: (data) => dispatch(Action.createNewAccountAction(data)),
-        getAllCodeRedux: (type) => dispatch(Action.getAllCodeAction(type)),
 
 
     }

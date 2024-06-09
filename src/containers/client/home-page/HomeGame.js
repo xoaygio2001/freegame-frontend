@@ -28,12 +28,12 @@ class HomeGame extends Component {
             game18: [],
             allDataGameNumber: 70,
             currentPage: 1,
-            gameNumber: 20,
+            gameNumber: 8,
         }
     }
 
     async componentDidMount() {
-        this.props.getTopGame(this.state.gameNumber, 'NEW')
+        this.props.getTopGame(this.state.gameNumber, 'NEW', this.state.currentPage)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -60,7 +60,7 @@ class HomeGame extends Component {
             this.setState({
                 navGameActive: type
             })
-            this.props.getTopGame(this.state.gameNumber, type)
+            this.props.getTopGame(this.state.gameNumber, type, this.state.currentPage)
         }
     }
 
@@ -74,6 +74,8 @@ class HomeGame extends Component {
     render() {
         let { newGame, hotGame, navGameActive, game18 } = this.state
         let data = [];
+
+        let dataFake = [1, 2, 3, 4, 5, 6, 7, 8];
 
         switch (navGameActive) {
             case 'NEW':
@@ -109,47 +111,62 @@ class HomeGame extends Component {
                         GAME 18+
                     </div>
                 </div>
+                {(data && data.length > 0) ?
 
-                <Container >
-                    <Row className="games">
+                    <Container >
+                        <Row className="games">
 
-                        {data && data.length > 0 &&
-                            data.map((item, index) => {
-                                return (
-                                    <Col xs={5} md={3} key={index} className="game">
-                                        <div className="img"
-                                            style={{ backgroundImage: `url(${item.img})` }}
-                                        />
-                                        <div className="name">{item.name}</div>
+                            {data && data.length > 0 &&
+                                data.map((item, index) => {
+                                    return (
+                                        <Col xs={5} md={3} key={index} className="game">
+                                            <div className="img"
+                                                style={{ backgroundImage: `url(${item.img})` }}
+                                            />
+                                            <div className="name">{item.name}</div>
 
-                                        <div className="tag">
-                                            <i className="fas fa-tags"></i>
-                                            <p>
-                                                {item.TagGames && item.TagGames.length > 0 &&
-                                                    item.TagGames.map((itemTag, indexMap) => {
-                                                        return (
-                                                            `${itemTag.AllCode.value},   `
+                                            <div className="tag">
+                                                <i className="fas fa-tags"></i>
+                                                <p>
+                                                    {item.TagGames && item.TagGames.length > 0 &&
+                                                        item.TagGames.map((itemTag, indexMap) => {
+                                                            return (
+                                                                `${itemTag.AllCode.value},   `
 
+                                                            )
+                                                        }
                                                         )
                                                     }
-                                                    )
-                                                }
-                                            </p>
-                                        </div>
-                                        <div className="see">
-                                            <NavLink className="download" to={`/detail-game/${item.id}`}>
-                                                <i class="fas fa-download"></i> <span>TẢI GAME</span>
-                                            </NavLink>;
-                                        </div>
-                                    </Col>
-                                )
-                            })
+                                                </p>
+                                            </div>
+                                            <div className="see">
+                                                <NavLink className="download" to={`/detail-game/${item.id}`}>
+                                                    <i class="fas fa-download"></i> <span>TẢI GAME</span>
+                                                </NavLink>;
+                                            </div>
+                                        </Col>
+                                    )
+                                })
 
-                        }
+                            }
 
-                    </Row>
-                </Container>
+                        </Row>
+                    </Container>
+                    :
+                    <Container >
+                        <Row className="games">
+                            {
+                                dataFake.map((item, index) => {
+                                    return (
+                                        <Col xs={5} md={3} key={index} className="game">
 
+                                        </Col>
+                                    )
+                                })
+                            }
+                        </Row>
+                    </Container>
+                }
             </div>
         )
     }

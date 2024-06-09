@@ -32,7 +32,7 @@ class Game extends Component {
         this.state = {
             gameByCategory: [],
             categoryByTagId: {},
-            limit: 20,
+            limit: 8,
             currentPage: 1,
             allDataNumber: 0,
         }
@@ -40,7 +40,7 @@ class Game extends Component {
 
     async componentDidMount() {
         let { tagId, pageNumber } = this.props.params
-        this.props.getCategoryByTagId(tagId)
+        await this.props.getCategoryByTagId(tagId)
         let res = await this.props.getGameByCategory(tagId, this.state.limit, pageNumber)
         if (res && res.errCode === 0) {
             this.setState({
@@ -67,7 +67,7 @@ class Game extends Component {
         }
 
         if (prevProps.params.tagId !== this.props.params.tagId) {
-            this.props.getCategoryByTagId(this.props.params.tagId)
+            await this.props.getCategoryByTagId(this.props.params.tagId)
             let res = await this.props.getGameByCategory(this.props.params.tagId, this.state.limit, this.props.params.pageNumber)
             if (res && res.errCode === 0) {
                 this.setState({
@@ -107,26 +107,21 @@ class Game extends Component {
         let maxPageNumber = Math.floor((allDataNumber / limit))
         let arrNumber = [];
 
-        if(allDataNumber <= limit) {
+        const visiblePages = 5;
 
-        } else if (currentPage == 1) {
-            arrNumber = [1, 2, 3]
-        } else if (currentPage == 2) {
-            arrNumber = [1, 2, 3, 4]
-        } else if (currentPage == 3) {
-            arrNumber = [1, 2, 3, 4, 5]
-        } else if (currentPage == 4) {
-            arrNumber = [1, 2, 3, 4, 5, 6]
-        } else if (currentPage > 4) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2]
-        } else if (currentPage == maxPageNumber && maxPageNumber != 1) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage]
-        } else if (currentPage == maxPageNumber - 1 && maxPageNumber != 1 && maxPageNumber != 2) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1]
-        } else if (currentPage == maxPageNumber - 2 && maxPageNumber != 1 && maxPageNumber != 2 && maxPageNumber != 3) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2]
-        } else if (currentPage == maxPageNumber - 3 && maxPageNumber != 1 && maxPageNumber != 2 && maxPageNumber != 3 && maxPageNumber != 4) {
-            arrNumber = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2, currentPage + 3]
+        let dataFake = [1, 2, 3, 4, 5, 6, 7, 8];
+
+        if (allDataNumber > limit) {
+            let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
+            let endPage = Math.min(maxPageNumber, startPage + visiblePages - 1);
+
+            if (endPage - startPage + 1 < visiblePages) {
+                startPage = Math.max(1, endPage - visiblePages + 1);
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                arrNumber.push(i);
+            }
         }
 
 
@@ -146,46 +141,63 @@ class Game extends Component {
 
                     <div className="line" />
                 </div>
+                {(gameByCategory && gameByCategory.length > 0) ?
 
-                <Container >
-                    <Row className="games">
+                    <Container >
+                        <Row className="games">
+                            {gameByCategory && gameByCategory.length > 0 &&
+                                gameByCategory.map((item, index) => {
+                                    return (
+                                        <Col xs={5} md={3} key={index} className="game">
+                                            <div className="img"
+                                                style={{ backgroundImage: `url(${item.img})` }}
+                                            />
+                                            <div className="name">{item.name}</div>
 
-                        {gameByCategory && gameByCategory.length > 0 &&
-                            gameByCategory.map((item, index) => {
-                                return (
-                                    <Col xs={5} md={3} key={index} className="game">
-                                        <div className="img"
-                                            style={{ backgroundImage: `url(${item.img})` }}
-                                        />
-                                        <div className="name">{item.name}</div>
+                                            <div className="tag">
+                                                <i className="fas fa-tags"></i>
+                                                <p>
+                                                    {item.TagGames && item.TagGames.length > 0 &&
+                                                        item.TagGames.map((itemTag, indexMap) => {
+                                                            return (
+                                                                `${itemTag.AllCode.value},   `
 
-                                        <div className="tag">
-                                            <i className="fas fa-tags"></i>
-                                            <p>
-                                                {item.TagGames && item.TagGames.length > 0 &&
-                                                    item.TagGames.map((itemTag, indexMap) => {
-                                                        return (
-                                                            `${itemTag.AllCode.value},   `
-
+                                                            )
+                                                        }
                                                         )
                                                     }
-                                                    )
-                                                }
-                                            </p>
-                                        </div>
-                                        <div className="see">
-                                            <NavLink className="download" to={`/detail-game/${item.id}`}>
-                                            <i class="fas fa-download"></i> <span>TẢI GAME</span>
-                                            </NavLink>;
-                                        </div>
-                                    </Col>
-                                )
-                            })
+                                                </p>
+                                            </div>
+                                            <div className="see">
+                                                <NavLink className="download" to={`/detail-game/${item.id}`}>
+                                                    <i class="fas fa-download"></i> <span>TẢI GAME</span>
+                                                </NavLink>;
+                                            </div>
+                                        </Col>
+                                    )
+                                })
 
-                        }
+                            }
 
-                    </Row>
-                </Container>
+                        </Row>
+                    </Container>
+                    :
+                    <Container >
+                        <Row className="games">
+                            {
+                                dataFake.map((item, index) => {
+                                    return (
+                                        <Col xs={5} md={3} key={index} className="game">
+
+                                        </Col>
+                                    )
+                                })
+
+                            }
+
+                        </Row>
+                    </Container>
+                }
 
                 <div className="pagination">
                     {currentPage != 1 &&
@@ -241,10 +253,6 @@ class Game extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        newGame: state.newGame,
-        hotGame: state.hotGame,
-        game18: state.game18,
-        topGame18: state.topGame18,
         gameByCategory: state.gameByCategory,
         categoryByTagId: state.categoryByTagId
     }
@@ -252,8 +260,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getTopGame: (limit, type) => dispatch(Action.getTopGameAction(limit, type)),
-        getAllTopGame18: (limit) => dispatch(Action.getAllTopGame18Action(limit)),
         getGameByCategory: (tagId, limit, pageNumber) => dispatch(Action.getGameByCategoryAction(tagId, limit, pageNumber)),
         getCategoryByTagId: (tagId) => dispatch(Action.getCategoryByTagIdAction(tagId)),
 

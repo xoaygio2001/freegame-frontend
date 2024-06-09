@@ -157,6 +157,8 @@ class ManageSoftware extends Component {
     handleCreateNewGame = async () => {
         let { name, img, contentMarkdown, contentHTML, url, point } = this.state
 
+        
+
         if (!name || !img || !url || !contentMarkdown || !contentHTML || !point) {
             console.log('thieu parameter')
         } else {

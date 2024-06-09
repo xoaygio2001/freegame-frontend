@@ -42,25 +42,11 @@ class ChangePasswordModal extends Component {
     }
 
     async componentDidMount() {
-        this.props.getAllTagGame()
-
-
     }
 
 
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // if (prevProps.setShow !== this.props.setShow) {
-        //     this.setState({
-        //         setShow: this.props.setShow
-        //     })
-        // }
-
-        // if (prevProps.setShow !== this.props.setShow) {
-        //     this.setState({
-        //         setShow: this.props.setShow
-        //     })
-        // }
     }
 
     handleGoHome = () => {
@@ -189,17 +175,12 @@ class ChangePasswordModal extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        game: state.game,
-        allTagGame: state.allTagGame,
         userLogin: state.userLogin,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getGameById: (id) => dispatch(Action.getGameByIdAction(id)),
-        getAllTagGame: () => dispatch(Action.getAllTagGameAction()),
-        CreateNewAccount: (data) => dispatch(Action.createNewAccountAction(data)),
         ChangePasswordAccount: (data) => dispatch(Action.ChangePasswordAccountAction(data)),
         
 
